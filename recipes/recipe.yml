@@ -174,20 +174,7 @@ modules:
   # ------------------------------------------------------------
   # 5. 激活服务
   # ------------------------------------------------------------
-  - type: systemd
-    system:
-      enabled:
-        #- lightdm.service
-        - sddm.service
-        - v2raya.service
-        - vmtoolsd.service
-        - firewalld.service
-    user:
-      enabled:
-        - wayvnc.service
-        - syncthing.service
-        
-- type: script
+  - type: script
     run: |
       echo "=== 正在直接在 recipe.yml 中对底座进行极限瘦身 ==="
       
@@ -206,3 +193,18 @@ modules:
       rm -rf /var/cache/*
       
       echo "=== 瘦身指令执行完毕 ==="
+      
+  - type: systemd
+    system:
+      enabled:
+        #- lightdm.service
+        - sddm.service
+        - v2raya.service
+        - vmtoolsd.service
+        - firewalld.service
+    user:
+      enabled:
+        - wayvnc.service
+        - syncthing.service
+        
+
