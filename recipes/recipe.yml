@@ -34,7 +34,7 @@ modules:
   - type: default-flatpaks@v1
     notify: true
     system:
-      install:
+      install: [] # 👈 显式声明这是一个空列表，解析器就不会报错了
         #- org.mozilla.firefox
         #- com.google.Chrome
         #- org.telegram.desktop
