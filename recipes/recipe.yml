@@ -175,24 +175,25 @@ modules:
   # 5. 激活服务
   # ------------------------------------------------------------
   - type: script
-    run: |
-      echo "=== 正在直接在 recipe.yml 中对底座进行极限瘦身 ==="
-      
-      # 1. 移除 VPS 绝对用不上的巨型物理显卡和无线网卡固件（能省下好几百 MB）
-      rm -rf /usr/lib/firmware/amdgpu*
-      rm -rf /usr/lib/firmware/nvidia*
-      rm -rf /usr/lib/firmware/radeon*
-      rm -rf /usr/lib/firmware/rtw*
-      rm -rf /usr/lib/firmware/brcm*
-      
-      # 2. 移除完全用不上的本地帮助文档和手册
-      rm -rf /usr/share/doc/*
-      rm -rf /usr/share/man/*
-      
-      # 3. 清理残留的缓存
-      rm -rf /var/cache/*
-      
-      echo "=== 瘦身指令执行完毕 ==="
+    snippets:
+      - |
+        echo "=== 正在直接在 recipe.yml 中对底座进行极限瘦身 ==="
+        
+        # 1. 移除 VPS 绝对用不上的巨型物理显卡和无线网卡固件（能省下好几百 MB）
+        rm -rf /usr/lib/firmware/amdgpu*
+        rm -rf /usr/lib/firmware/nvidia*
+        rm -rf /usr/lib/firmware/radeon*
+        rm -rf /usr/lib/firmware/rtw*
+        rm -rf /usr/lib/firmware/brcm*
+        
+        # 2. 移除完全用不上的本地帮助文档和手册
+        rm -rf /usr/share/doc/*
+        rm -rf /usr/share/man/*
+        
+        # 3. 清理残留的缓存
+        rm -rf /var/cache/*
+        
+        echo "=== 瘦身指令执行完毕 ==="
       
   - type: systemd
     system:
