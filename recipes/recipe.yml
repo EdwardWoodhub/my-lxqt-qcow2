@@ -35,8 +35,8 @@ modules:
     notify: true
     system:
       install:
-        - org.mozilla.firefox
-        - com.google.Chrome
-        - org.telegram.desktop
-        - com.jianguoyun.Nutstore
-        - com.visualstudio.code
+        #- org.mozilla.firefox
+        #- com.google.Chrome
+        #- org.telegram.desktop
+        #- com.jianguoyun.Nutstore
+        #- com.visualstudio.code
