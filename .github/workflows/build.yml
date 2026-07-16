@@ -78,7 +78,7 @@ jobs:
       # 2. 提前拉取你刚刚构建好的最新系统镜像到本地
       - name: Pull Custom Image to Local
         run: |
-          sudo podman pull ghcr.io/edwardwoodhub/my-bluefin-vm:latest
+          sudo podman pull ghcr.io/edwardwoodhub/my-lxqt-qcow2:latest
 
       # 3. 使用 bootc-image-builder 将刚才打包好的 GHCR 镜像转换为 qcow2 格式
       - name: Build QCOW2
@@ -94,14 +94,14 @@ jobs:
             quay.io/centos-bootc/bootc-image-builder:latest \
             --type qcow2 \
             --rootfs ext4 \
-            ghcr.io/edwardwoodhub/my-bluefin-vm:latest
+            ghcr.io/edwardwoodhub/my-lxqt-qcow2:latest
           # 💡 注意：请将上面最后一行的 "your-image-name" 替换为你在 recipe.yml 或 GitHub 中实际生成的容器镜像名称。
 
       # 4. 将生成的 qcow2 文件上传到 GitHub 运行结果的 Artifacts 中
       - name: Upload QCOW2 as Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: custom-bluefin-qcow2
+          name: my-lxqt-qcow2
           path: ./output/qcow2/disk.qcow2
           if-no-files-found: error
 
