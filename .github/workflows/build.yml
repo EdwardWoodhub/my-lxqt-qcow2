@@ -96,6 +96,18 @@ jobs:
             --rootfs ext4 \
             ghcr.io/edwardwoodhub/my-lxqt-qcow2:latest
           # 💡 注意：请将上面最后一行的 "your-image-name" 替换为你在 recipe.yml 或 GitHub 中实际生成的容器镜像名称。
+          # ================== 【这里是新增的压缩核心逻辑】 ==================
+          echo "检测到生成了 disk.qcow2，开始进行 QEMU 极限块压缩..."
+          
+          # 1. 使用 -c 参数进行压缩转换，输出到临时文件 compressed.qcow2
+          sudo qemu-img convert -c -O qcow2 ./output/qcow2/disk.qcow2 ./output/qcow2/compressed.qcow2
+          
+          # 2. 用压缩后的小文件覆盖原有的巨无霸文件
+          sudo mv ./output/qcow2/compressed.qcow2 ./output/qcow2/disk.qcow2
+          
+          echo "压缩完成！最终文件大小为："
+          ls -lh ./output/qcow2/disk.qcow2
+          # ================================================================
 
       # 4. 将生成的 qcow2 文件上传到 GitHub 运行结果的 Artifacts 中
       - name: Upload QCOW2 as Artifact
