@@ -1,4 +1,4 @@
-# Install Bluefin
+# Install LXQt
 
 # 下载并安装Cosign
 ```
@@ -66,7 +66,7 @@ rm cosign.key
 # 在虚拟机中执行“重基（Rebase）”
 ```
 # 注意：一定要加上 unsigned 前缀，因为我们使用的是自定义签名
-sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/edwardwoodhub/my-bluefin-qcow2:latest
+sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/edwardwoodhub/my-lxqt-qcow2:latest
 ```
 
 # 关键的“对暗号”——创建用户
