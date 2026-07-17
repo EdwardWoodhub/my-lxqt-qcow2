@@ -174,31 +174,31 @@ modules:
   # ------------------------------------------------------------
   # 5. 激活服务
   # ------------------------------------------------------------
-  - type: script
-    snippets:
-      - |
-        echo "=== 正在直接在 recipe.yml 中对底座进行极限瘦身 ==="
+  #- type: script
+    #snippets:
+      #- |
+        #echo "=== 正在直接在 recipe.yml 中对底座进行极限瘦身 ==="
         
         # 1. 移除 VPS 绝对用不上的巨型物理显卡和无线网卡固件（若不存在则跳过，不报错）
-        echo "清理固件..."
-        rm -rf /usr/lib/firmware/amdgpu* || true
-        rm -rf /usr/lib/firmware/nvidia* || true
-        rm -rf /usr/lib/firmware/radeon* || true
-        rm -rf /usr/lib/firmware/rtw* || true
-        rm -rf /usr/lib/firmware/brcm* || true
+        #echo "清理固件..."
+        #rm -rf /usr/lib/firmware/amdgpu* || true
+        #rm -rf /usr/lib/firmware/nvidia* || true
+        #rm -rf /usr/lib/firmware/radeon* || true
+        #rm -rf /usr/lib/firmware/rtw* || true
+        #rm -rf /usr/lib/firmware/brcm* || true
         
         # 2. 移除完全用不上的本地帮助文档和手册
-        echo "清理文档..."
-        rm -rf /usr/share/doc/* || true
-        rm -rf /usr/share/man/* || true
+        #echo "清理文档..."
+        #rm -rf /usr/share/doc/* || true
+        #rm -rf /usr/share/man/* || true
         
         # 3. 优雅清理残留缓存，避开挂载冲突
-        echo "清理缓存..."
+        #echo "清理缓存..."
         # 仅清空常规临时目录，避开 /var/cache 挂载锁
-        rm -rf /var/tmp/* || true
-        rm -rf /tmp/* || true
+        #rm -rf /var/tmp/* || true
+        #rm -rf /tmp/* || true
         
-        echo "=== 瘦身指令执行完毕 ==="
+        #echo "=== 瘦身指令执行完毕 ==="
       
   - type: systemd
     system:
